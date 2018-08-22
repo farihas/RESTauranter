@@ -1,0 +1,15 @@
+﻿@using RESTauranter.Controllers
+@model List<Review>
+
+
+<h5>@ViewData["Message"]</h5>
+
+<h2>Here are All the Reviews!</h2>
+
+@foreach(var review in @Model)
+{   
+    <hr>
+    <h4>Review for: @review.Restaurant ---- @review.Stars stars</h4>
+    <p>Reviewer: @review.User, @review.Created_at.ToString("dd MMM, yyyy")</p>    
+    <p>@review.Content</p>    
+}

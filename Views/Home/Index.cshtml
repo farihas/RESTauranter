@@ -1,0 +1,42 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Write a new Review:</h1>
+<hr>
+<!-- form asp-action will be a name of a method, instead of name of a route used with form action -->
+<form asp-action="ValidateForm" asp-controller="Home" method="POST">
+    <label asp-for="User">Reviewer Name:</label>
+    <span style="color: red" asp-validation-for="User"></span>
+    <input type="text" asp-for="User" placeholder="your name">
+    <br><br>
+
+    <label asp-for="Restaurant">Restaurant Name:</label>
+    <span style="color: red" asp-validation-for="Restaurant"></span>
+    <input type="text" asp-for="Restaurant" placeholder="restaurant visited">   
+
+    <label asp-for="Stars">Stars:</label>
+    <span style="color: red" asp-validation-for="Stars"></span>
+    <!-- <input type="option" asp-for="Stars">     -->
+    <select asp-for="Stars">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br><br>
+
+    <label asp-for="Content">Review:</label>
+    <span style="color: red" asp-validation-for="Content"></span>
+    <textarea asp-for="Content" placeholder="your review"></textarea> 
+    <br><br>
+
+    <label asp-for="VisitDate">Date of visit:</label>
+    <span style="color: red" asp-validation-for="VisitDate"></span>
+    <input type="date" asp-for="VisitDate">    
+    <br><br>
+
+    <input class="button" type="submit" value="Submit">      
+</form>
